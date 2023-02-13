@@ -9,15 +9,21 @@ set(CMAKE_CXX_STANDARD 11)
 #set(CMAKE_Ｌ_FLAGS "-fsanitize=undefined,address,leak -fno-omit-frame-pointer")
 
 INCLUDE_DIRECTORIES(${CMAKE_SOURCE_DIR}/include)
-
 aux_source_directory(${CMAKE_SOURCE_DIR}/src SRC)
 
+include(FetchContent)
+FetchContent_Declare(
+        doctest
+        GIT_REPOSITORY https://github.com/doctest/doctest.git
+        GIT_TAG v2.4.9
+        GIT_SHALLOW TRUE
+)
+FetchContent_MakeAvailable(doctest)
 
-find_package(GTest)
-include_directories(${Test_INCLUDE_DIRS})
+
 
 add_executable(leetcode main.cpp ${SRC})
-target_link_libraries(leetcode PRIVATE ${EXTRA_LIBS} GTest::GTest)
+target_link_libraries(leetcode PRIVATE doctest_with_main)
 
 #target_link_libraries(sort PRIVATE ${OpenCV_LIBS} ${EXTRA_LIBS})
 

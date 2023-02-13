@@ -10,7 +10,7 @@
  */
 
 #include <bits/stdc++.h>
-#include <gtest/gtest.h>
+#include "doctest.h"
 
 #include <algorithm>
 #include <backward.hpp>
@@ -31,7 +31,10 @@ namespace test_leetcode{
 
     std::vector<std::vector<int>> vv{{0,0,0,0,0,0,0,0}};
 
-    EXPECT_EQ(solution.maxAreaOfIsland(vv), 5);
+	TEST_CASE("TEST doc")
+	{
+		CHECK(solution.maxAreaOfIsland(vv) ==5);
+	}
 
 };
 }
