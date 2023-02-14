@@ -21,9 +21,8 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(doctest)
 
 
-
 add_executable(leetcode main.cpp ${SRC})
-target_link_libraries(leetcode PRIVATE doctest_with_main)
+target_link_libraries(leetcode doctest_with_main)
 
 #target_link_libraries(sort PRIVATE ${OpenCV_LIBS} ${EXTRA_LIBS})
 
